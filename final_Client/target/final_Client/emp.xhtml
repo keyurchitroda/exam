@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                   <h:outputLabel value="Empname:" for="empname" />
+                   <h:inputText id="empname" value="#{empBean.ename}" title="Empname" required="true" requiredMessage="The Empname field is required."/>
+                    <h:outputLabel value="Empage:" for="empage" />
+                    <h:inputText id="empage" value="#{empBean.eage}" title="Empage" required="true" requiredMessage="The Empage field is required."/>
+                    <h:outputLabel value="Empsalary:" for="empsalary" />
+                    <h:inputText id="empsalary" value="#{empBean.esalary}" title="Empsalary" required="true" requiredMessage="The Empsalary field is required."/>
+                    <h:commandButton value="Insert" action="#{empBean.insertemp()}"/>
+                </h:panelGrid>
+            </h:form>
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{empBean.employee}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empname"/>
+                        </f:facet>
+                        <h:outputText value="#{item.empname}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empage"/>
+                        </f:facet>
+                        <h:outputText value="#{item.empage}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empsalary"/>
+                        </f:facet>
+                        <h:outputText value="#{item.empsalary}"/>
+                    </h:column>
+                     <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Delete"/>
+                        </f:facet>
+                         <h:commandButton action="#{empBean.removeemp(item.id)}" value="Delete"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+        
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                   <h:outputLabel value="Empname:" for="empname" />
+                   <h:selectOneMenu value="#{empBean.ename}">
+                       <f:selectItems value="#{empBean.employee}" var="ename" itemLabel="#{ename.empname}" itemValue="#{ename.empname}"/>
+                   </h:selectOneMenu>
+                    <h:outputLabel value="Empage:" for="empage" />
+                    <h:selectOneMenu value="#{empBean.eage}">
+                        <f:selectItems value="#{empBean.employee}" var="eage" itemLabel="#{eage.empage}" itemValue="#{eage.empage}"/>
+                   </h:selectOneMenu>
+                    <h:outputLabel value="Empsalary:" for="empsalary" />
+                    <h:selectOneMenu value="#{empBean.esalary}">
+                        <f:selectItems value="#{empBean.employee}" var="esal" itemLabel="#{esal.empsalary}" itemValue="#{esal.empsalary}"/>
+                   </h:selectOneMenu>
+                    <h:commandButton value="filter" action="#{empBean.filter()}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+
+    </h:body>
+</html>
+
