@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/edit/<%= user2._id  %>" enctype="multipart/form-data">
+
+
+        <input type="text" name="firstname" placeholder="Firstname" value="<%= user2.firstname  %> "/>
+        <input type="text" name="lastname" placeholder="Lastname" value="<%= user2.lastname  %> "/>
+        <input type="text" name="email" placeholder="Email" value="<%= user2.email  %> "/>
+        <input type="text" name="age" placeholder="Age" value=" <%= user2.age  %>" />
+        <input type="file" name="image" value="<%= user2.image  %> "/>
+        <input type="submit" value="Update"/>
+    </form>
+</body>
+</html>

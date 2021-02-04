@@ -1,3 +1,0 @@
-#!/bin/sh
-mvn clean package && docker build -t keyur/final_Client .
-docker rm -f final_Client 2>/dev/null || true && docker run -it --name final_Client -p 8080:8080 -p 4848:4848 -p 8181:8181 --name final_Client keyur/final_Client

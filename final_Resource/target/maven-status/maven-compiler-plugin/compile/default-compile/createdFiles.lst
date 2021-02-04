@@ -1,8 +1,0 @@
-com\mycompany\final_resource\entity\Employee.class
-com\mycompany\final_resource\entity\Employee_.class
-com\mycompany\final_resource\service\ExampleService.class
-com\mycompany\final_resource\service\EmployeeService.class
-com\mycompany\final_resource\config\BootStrap.class
-com\mycompany\final_resource\config\Producers.class
-com\mycompany\final_resource\service\HealthCheckService.class
-com\mycompany\final_resource\config\CrossOriginResourceSharingFilter.class

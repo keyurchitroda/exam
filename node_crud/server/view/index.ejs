@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="POST" action="/insert" enctype="multipart/form-data">
+        <input type="text" name="firstname" placeholder="Firstname"/>
+        <input type="text" name="lastname" placeholder="Lastname"/>
+        <input type="text" name="email" placeholder="Email"/>
+        <input type="text" name="age" placeholder="Age"/>
+        <input type="file" name="image"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+    <table border="2"> 
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Image</th>
+        </tr>
+
+        <% for(i=0; i< user1.length; i++){ %>
+            
+            <tr>
+                <td><%= user1[i].firstname %></td>
+                <td><%= user1[i].lastname %> </td>
+                <td><%= user1[i].email %> </td>
+                <td><%= user1[i].age %> </td>
+                <td><img src="<%= user1[i].image  %> " width="100px" height="100px" /> </td>
+                <td><a class="btn" href="/deleteuser/<%= user1[i]._id  %> ">Delete</a></td>
+                <td><a class="btn" href="/findById/<%= user1[i]._id  %> ">Edit</a></td>
+
+            </tr>
+
+        <% } %>
+
+    </table>
+</body>
+</html>
